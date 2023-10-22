@@ -1,0 +1,140 @@
+.section-contact {
+  background-image: url("../Images/tour7.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 25rem;
+}
+.contact-title {
+  font-size: 5rem;
+  text-align: center;
+  color: aliceblue;
+  transform: translateY(10rem);
+}
+
+.contact-area {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  height: 60vh;
+  margin-bottom: 20px;
+  margin-top: 60px;
+  margin-left: 3rem;
+}
+
+.form-area {
+  width: 64%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.form-1 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+input[type="text"] {
+  width: 350px;
+}
+input[type="email"] {
+  width: 350px;
+}
+input[type="password"] {
+  width: 350px;
+}
+.input-field {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  border-radius: 10px;
+  padding: 20px;
+  border: none;
+}
+textarea {
+  width: 664px;
+  height: 150px;
+}
+.message-box {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.submit-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #c29d59;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #000;
+}
+.tour-mission01 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 54rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  height: 50vh;
+  padding: 10px;
+  transform: translateY(-28rem);
+  background-color: #f6f6f6;
+  width: 30%;
+}
+.mission-details01 {
+  margin-left: -0.4rem;
+  transform: translateY(-1rem);
+}
+.tour-mission01 p {
+  color: #999;
+  padding: 10px;
+}
+.tour-mission01 h1 {
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.tour-mission01 h1::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  width: 3px;
+  height: 20%;
+  background-color: #c29d59;
+  margin-left: -0.4rem;
+}
+
+.contact-mission1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 54rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background-color: #c29d59;
+  padding: 18px;
+  transform: translateY(-25rem);
+  width: 30%;
+  height: 50vh;
+}
+.contact-mission1 h1 {
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transform: translateY(-10px);
+  margin-left: 1.4rem;
+}
+
+.contact-mission1 p {
+  color: #f6f6f6;
+  padding: 10px;
+  padding-top: 23px;
+  
+  margin-left: 1.1rem;
+}

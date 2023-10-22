@@ -1,0 +1,16 @@
+/* AreaChartStyles.css */
+.area-chart-container {
+  width: 60%;
+
+  background-color: hsla(0, 0%, 100%, 0.796);
+  transform: translateY(100px);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+.chart-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+}
