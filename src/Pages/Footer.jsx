@@ -1,4 +1,4 @@
-import "../Css/Footer.css";
+import "../CSS/Footer.css";
 import PayImages from "../Images/payment-companies0-logo.png";
 import FooterLogo from "../Images/white-logo.png";
 import { FiTwitter, FiInstagram, FiFacebook } from "react-icons/fi";

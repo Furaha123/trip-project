@@ -73,7 +73,7 @@ function SignUpForm({ openModal }) {
   return (
     <div className="signup-form">
       <form onSubmit={handleSubmit}>
-        <h2 className="form-title">Sign Up</h2>
+        <h2 className="form-title">Add A user</h2>
         <div className="form-group">
           <button type="button" className="cancel-button" onClick={openModal}>
             &#10005;
@@ -123,7 +123,7 @@ function SignUpForm({ openModal }) {
         </div>
 
         <button type="submit" className="submit-btn">
-          Sign Up
+          Add User
         </button>
       </form>
     </div>
