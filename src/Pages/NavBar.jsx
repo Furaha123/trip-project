@@ -23,7 +23,7 @@ const NavBar = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const openModal = () => {
+  const openMod= () => {
     setIsModalOpen(true);
   };
   const clodeModal = () => {
@@ -53,7 +53,7 @@ const NavBar = () => {
         <div className="slider-nav">
           <button className="research-btn1">Reserve</button>
           <img src={search} alt="my image" className="search-image" />
-          <div className="hamburger-menu" onClick={openModal}>
+          <div className="hamburger-menu" onClick={openMod}>
             <div className="bar"></div>
             <div className="bar"></div>
             <div className="bar"></div>

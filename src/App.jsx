@@ -27,6 +27,9 @@ import SignUpForm from "./Dashboard/signup";
 import Rechart from "./Dashboard/Rechart";
 import Contact from "./Pages/Contact";
 import SignUp from "./Pages/SignUp";
+// import { ContextProvider } from "./Dashboard/ContextProvider";
+// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 function Layout2() {
   <div>
     <Header />
@@ -85,24 +88,27 @@ const App = () => {
     //     </Route>
     //   </Routes>
     // </BrowserRouter>
+    // <QueryClientProvider client={client}>
+    //   <ContextProvider>
+        <Routes>
+          <Route path="/" element={<Layout1 />}>
+            <Route index element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/tourlist" element={<TourList />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/tour/:id" element={<TourDetail />} />
+            <Route path="signup" element={<SignUp />} />
+          </Route>
 
-    <Routes>
-      <Route path="/" element={<Layout1 />}>
-        <Route index element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/tourlist" element={<TourList />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/tour/:id" element={<TourDetail />} />
-        <Route path="signup" element={<SignUp />} />
-      </Route>
-
-      <Route path="/dashboard" element={<Dashboard />}>
-        <Route path="upcoming" element={<Upcoming />} />
-        <Route path="tours" element={<Tour />} />
-        <Route index path="home" element={<Rechart />} />
-        <Route path="users" element={<Users />} />
-      </Route>
-    </Routes>
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route path="upcoming" element={<Upcoming />} />
+            <Route path="tours" element={<Tour />} />
+            <Route index path="home" element={<Rechart />} />
+            <Route path="users" element={<Users />} />
+          </Route>
+        </Routes>
+    //   </ContextProvider>
+    // </QueryClientProvider>
   );
 };
 

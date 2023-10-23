@@ -1,4 +1,4 @@
-import { tours } from "../data/tour";
+// import { tours } from "../data/tour";
 
 import "../CSS/TourList.css";
 import Tour1 from "../Images/tour1.jpg";
@@ -9,12 +9,26 @@ import Tour5 from "../Images/tour5.jpg";
 import Tour6 from "../Images/tour6.jpg";
 import Tour7 from "../Images/tour7.jpg";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 const TourList = () => {
+  const [tours, setTours] = useState([]);
   console.log(tours);
-  const {id}=useParams()
+  const { id } = useParams();
+  useEffect(() => {
+    fetchTours();
+  }, []);
+
+  // const fetchTours = () => {
+  //   axios.get("https://holiday-planner-4ir2.onrender.com/").then(({ data }) => {
+  //     setTours(data);
+  //     console.log(data);
+  //   });
+  // };
+
   return (
     <section className="section-tour">
-     
       <div className="tour-title">
         <h1>Tour List</h1>
       </div>
@@ -129,7 +143,7 @@ const TourList = () => {
         <div className="card-container">
           {tours.map((e) => (
             <div className="card-tour1">
-              <img src={e.image} />
+              <img src={e.backdropImage} />
               <div className="min-tour">
                 <h1 className="italy"> {e.country}</h1>
                 <p className="para-1"> {e.title}</p>
@@ -147,7 +161,9 @@ const TourList = () => {
                 </div>
                 <p className="price">{e.amount}</p>
                 <div>
-                  <Link to={`/tour/${e.id}`} className="book-now-button">Book Now</Link>
+                  <Link to={`/tour/${e.id}`} className="book-now-button">
+                    Book Now
+                  </Link>
                 </div>
               </div>
             </div>

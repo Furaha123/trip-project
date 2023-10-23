@@ -10,7 +10,7 @@ import Tour3 from "../Images/tour3.jpg";
 import Tour4 from "../Images/tour4.jpg";
 import Tour5 from "../Images/tour5.jpg";
 import Carousel from "react-bootstrap/Carousel";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 const Home = () => {
   const slide = [
     {

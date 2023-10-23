@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../CSS/Tour.css";
+import axios from "axios";
 
 function TourTable() {
   const data = [
@@ -45,6 +46,44 @@ function TourTable() {
     },
   ];
 
+  // const [sitetours, setSiteTours] = useState([]);
+
+  // useEffect(()=>{
+  //   const fetchData =async () => {
+  //     const res = await fetch(
+  //       "https://holiday-planner-4lnj.onrender.com/api/v1/tour",
+  //       {
+  //         method: "GET",
+  //       }
+  //     );
+
+  //     const data = await res.json()
+
+  //     console.log("+=====", data);
+
+  //   }
+  //   fetchData();
+
+  // }, [])
+  // const FetchTour = async () => {
+  //   try {
+  //     const { dataTour } = await axios.get(
+  //       "https://holiday-planner-4lnj.onrender.com/api/v1/tour"
+  //     );
+  //     if (dataTour) {
+  //       console.log(dataTour );
+  //       setSiteTours(dataTour);
+  //     }
+  //   } catch (error) {
+  //     console.log({ error });
+  //   }
+  // };
+  // useEffect(() => {
+  //   FetchTour();
+  // }, []);
+  // let id = 1;
+  // console.log("==================", sitetours);
+
   const [showOptions, setShowOptions] = useState(null);
 
   const handleRowClick = (index) => {
@@ -65,7 +104,7 @@ function TourTable() {
 
   return (
     <div className="tour-table-container">
-    <h2 className="tour-detail">Tour Details</h2>
+      <h2 className="tour-detail">Tour Details</h2>
       <table className="tour-table">
         <thead>
           <tr>

@@ -1,10 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../CSS/Sign.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import LoginImage from "../Images/Login.svg"
+import { useNavigate } from "react-router-dom";
+import LoginImage from "../Images/Login.svg";
 
-function SignUp({ openModal }) {
+function SignUp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fullname, setFullname] = useState("");
+  const [confirmPassword, setconfirmPassword] = useState("");
+
+  const Navigate = useNavigate();
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      alert("Passwords don't match");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "https://holiday-planner-4lnj.onrender.com/api/v1/auth/signup",
+        {
+          email,
+          password,
+          fullname,
+        }
+      );
+      console.log(response);
+      console.log(response.data);
+      Navigate("/login");
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
+  };
+
   const [action, setAction] = useState("Login");
 
   return (
@@ -20,7 +52,7 @@ function SignUp({ openModal }) {
             <div></div>
           ) : (
             <div className="input-one">
-              <input type="text" placeholder="Full names"></input>
+              <input type="text"></input>
             </div>
           )}
 
@@ -45,7 +77,8 @@ function SignUp({ openModal }) {
             <div className="submitting">
               <div
                 className={action === "Login" ? "submit1 gray" : "submit1"}
-                onClick={() => {
+                onClick={(e) => {
+                  handleFormSubmit(e);
                   setAction("Sign Up");
                 }}
               >
@@ -53,7 +86,8 @@ function SignUp({ openModal }) {
               </div>
               <div
                 className={action === "Sign Up" ? "submit1 gray" : "submit1"}
-                onClick={() => {
+                onClick={(e) => {
+                  handleFormSubmit(e);
                   setAction("Login");
                 }}
               >
