@@ -1,21 +1,21 @@
 .container-form {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   width: 87%;
-margin-bottom: 20px;
- border: 2px solid #ccc;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   margin-left: 4.9rem;
+  gap: 20px;
+  height: fit-content;
 }
 .header-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 9px;
-  transform: translateY(-22rem);
-margin-left: -30rem;
-
 }
 .text-form {
   color: #000;
@@ -25,15 +25,17 @@ margin-left: -30rem;
 .underline {
   width: 61px;
   height: 4px;
-  background: #C29D59;
+  background: #c29d59;
 }
 .inputs-form {
-  margin-top: 55px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  margin-left:-30rem ;
-  margin-top: -19rem;
   gap: 25px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .input-one {
   display: flex;
@@ -81,7 +83,7 @@ margin-left: -30rem;
   width: 200px;
   height: 39px;
   color: #eaeaea;
-  background: #C29D59;
+  background: #c29d59;
   border-radius: 50px;
   font-size: 19px;
   font-weight: 700;
@@ -95,9 +97,66 @@ margin-left: -30rem;
 }
 
 .styled-image {
- 
-  margin-left: 40rem;
-  width: 400px;
+  width: 500px;
   height: auto;
-  
+}
+
+.login-link {
+  font-size: 14px;
+  color: #000;
+}
+
+.login-link a {
+  color: #0077ff;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  background-color: #c29d59;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 26px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s, color 0.3s;
+
+  margin-top: -15px;
+  &:hover {
+    background-color: #000;
+  }
+}
+
+@media (max-width: 768px) {
+  .input-one {
+    width: 100%;
+  }
+  .input-one input {
+    width: 100%;
+  }
+  .forgot-password {
+    text-align: center;
+    margin-left: 0;
+  }
+  .submitting {
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 10px;
+  }
+  .submit1 {
+    width: 100%;
+  }
+  .login-button {
+    width: 100%;
+  }
+
+  .login-link {
+    display: none;
+  }
 }

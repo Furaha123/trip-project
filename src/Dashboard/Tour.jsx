@@ -105,6 +105,7 @@ function TourTable() {
   return (
     <div className="tour-table-container">
       <h2 className="tour-detail">Tour Details</h2>
+      <button className="add-tour"> Add Tour</button>
       <table className="tour-table">
         <thead>
           <tr>

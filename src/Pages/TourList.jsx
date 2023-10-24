@@ -1,5 +1,3 @@
-// import { tours } from "../data/tour";
-
 import "../CSS/TourList.css";
 import Tour1 from "../Images/tour1.jpg";
 import Tour2 from "../Images/tour2.jpg";
@@ -13,6 +11,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const TourList = () => {
+
+  
   const [tours, setTours] = useState([]);
   console.log(tours);
   const { id } = useParams();
@@ -20,12 +20,12 @@ const TourList = () => {
     fetchTours();
   }, []);
 
-  // const fetchTours = () => {
-  //   axios.get("https://holiday-planner-4ir2.onrender.com/").then(({ data }) => {
-  //     setTours(data);
-  //     console.log(data);
-  //   });
-  // };
+  const fetchTours = () => {
+    axios.get("https://holidayplanner.onrender.com/tour}").then(({ data }) => {
+      setTours(data);
+      console.log(data);
+    });
+  };
 
   return (
     <section className="section-tour">
