@@ -29,7 +29,6 @@ function SignUp() {
     axios
       .post("https://holidayplanner.onrender.com/auth/signup", payload)
       .then(() => {
-        
         Navigate("/login");
         console.log(payload);
       });

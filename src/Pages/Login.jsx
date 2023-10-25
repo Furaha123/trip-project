@@ -21,9 +21,9 @@ function Login() {
       .post("https://holidayplanner.onrender.com/auth/login", payload)
       .then((response) => {
         console.log("Response data:", response.data);
-        localStorage.setItem("token", token);
+        // localStorage.setItem("token", token);
 
-        console.log(token);
+        // console.log(token);
         Navigate("/dashboard");
       });
   };
