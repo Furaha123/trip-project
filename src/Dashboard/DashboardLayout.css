@@ -11,7 +11,8 @@
   background-color: #fff;
   border-right: 1px solid #e0e0e0; 
   padding: 20px;
-  
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  position: fi;
   
 }
 
@@ -25,7 +26,7 @@
   align-items: center;
   margin-bottom: 15px;
   cursor: pointer;
-  color: #333; /* Dark gray text */
+  color: #333; 
   transition: color 0.2s;
 }
 
@@ -37,7 +38,7 @@
 }
 
 .sidebar li:hover {
-  color: #007BFF; /* Hover color, e.g., blue */
+  color: #007BFF;
 }
 
 /* Content */

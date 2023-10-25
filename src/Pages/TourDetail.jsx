@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import "../CSS/TourDetail.css";
-import { tours } from "../data/tour";
+// import { tours } from "../data/tour";
 const TourDetail = () => {
   const { id } = useParams();
   const tour = tours.find((e) => e.id == id);

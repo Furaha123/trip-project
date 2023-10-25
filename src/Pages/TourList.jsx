@@ -11,21 +11,72 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const TourList = () => {
+  const tours = [
+    {
+      id: 1,
+      title: "Tour Title 1",
+      description: "Description of tour 1",
+      country: "Country",
+      backdropImage: Tour1,
+      duration: "4",
+      days: "days",
+      sub: "Group Size",
+      people: "4 people",
+      amount: "$4570.0",
+    },
+    {
+      id: 2,
+      title: "Tour Title 2",
+      description: "Description of tour 2",
+      country: "China ",
+      backdropImage: Tour2,
+      duration: "5",
+      days: "days",
+      sub: "Group Size",
+      people: "6 people",
+      amount: "$5600.0",
+    },
 
-  
-  const [tours, setTours] = useState([]);
-  console.log(tours);
-  const { id } = useParams();
-  useEffect(() => {
-    fetchTours();
-  }, []);
+    {
+      id: 2,
+      title: "",
+      description: "Description of tour 2",
+      country: "Rwanda ",
+      backdropImage: Tour3,
+      duration: "5",
+      days: "days",
+      sub: "Group Size",
+      people: "6 people",
+      amount: "$5600.0",
+    },
 
-  const fetchTours = () => {
-    axios.get("https://holidayplanner.onrender.com/tour}").then(({ data }) => {
-      setTours(data);
-      console.log(data);
-    });
-  };
+    {
+      id: 2,
+      title: "",
+      description: "Description of tour 2",
+      country: "Gemany",
+      backdropImage: Tour4,
+      duration: "5",
+      days: "days",
+      sub: "Group Size",
+      people: "6 people",
+      amount: "$5600.0",
+    },
+  ];
+
+  // const [tours, setTours] = useState([]);
+  // console.log(tours);
+  // const { id } = useParams();
+  // useEffect(() => {
+  //   fetchTours();
+  // }, []);
+
+  // const fetchTours = () => {
+  //   axios.get("https://holidayplanner.onrender.com/tour}").then(({ data }) => {
+  //     setTours(data);
+  //     console.log(data);
+  //   });
+  // };
 
   return (
     <section className="section-tour">
@@ -141,62 +192,32 @@ const TourList = () => {
         </div>
 
         <div className="card-container">
-          {tours.map((e) => (
-            <div className="card-tour1">
-              <img src={e.backdropImage} />
+          {tours.map((tour, index) => (
+            <div key={index} className="card-tour1">
+              <img src={tour.backdropImage} alt={`Tour ${index + 1}`} />
               <div className="min-tour">
-                <h1 className="italy"> {e.country}</h1>
-                <p className="para-1"> {e.title}</p>
-                <p className="para-2">{e.description}</p>
+                <h1 className="italy">{tour.country}</h1>
+                <p className="para-1">{tour.title}</p>
+                <p className="para-2">{tour.description}</p>
                 <div className="periods">
                   <div className="duration">
-                    <h3>{e.duration}</h3>
-                    <p className="para-days">{e.days}</p>
+                    <h3>{tour.duration}</h3>
+                    <p className="para-days">{tour.days}</p>
                   </div>
-
                   <div>
-                    <h3 className="group-size ">{e.sub}</h3>
-                    <p className="people">{e.people}</p>
+                    <h3 className="group-size">{tour.sub}</h3>
+                    <p className="people">{tour.people}</p>
                   </div>
                 </div>
-                <p className="price">{e.amount}</p>
+                <p className="price">{tour.amount}</p>
                 <div>
-                  <Link to={`/tour/${e.id}`} className="book-now-button">
+                  <Link to={`/tour/${tour.id}`} className="book-now-button">
                     Book Now
                   </Link>
                 </div>
               </div>
             </div>
           ))}
-          <div className="card-tour1">
-            <img src={Tour1} alt="tour1" />
-
-            <div className="min-tour">
-              <h1 className="italy">Taly</h1>
-              <p className="para-1">
-                Holiday Planners help you travel the world easliy
-              </p>
-              <p className="para-2">
-                Whether it's exploring a bustling city, hiking through serene
-                natural landscapes,,,,,
-              </p>
-              <div className="periods">
-                <div className="duration">
-                  <h3>Duration</h3>
-                  <p className="para-days">4 days</p>
-                </div>
-
-                <div>
-                  <h3 className="group-size ">GroupSize</h3>
-                  <p className="people">4 people</p>
-                </div>
-              </div>
-              <p className="price">$4570.0</p>
-              <div>
-                <button className="book-now-button">Book Now</button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

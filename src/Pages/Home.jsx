@@ -115,7 +115,7 @@ const Home = () => {
       </section>
 
       <section className="tour-section">
-        <div className="tour-area">
+        <div className="">
           <div className="tour-head">
             <h1 className="title-one"> Amazingn Tours</h1>
             <p className="title-tour">
@@ -135,7 +135,7 @@ const Home = () => {
                 alt="tour1"
                 style={{ height: "16rem", width: "17rem" }}
               />
-              <span className="image-text">45%</span>
+
               <div>
                 <h1 className="italy">{tour.country}</h1>
                 <p className="para-1">

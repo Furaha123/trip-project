@@ -1,0 +1,62 @@
+/* AddTourForm.module.css */
+.form-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  max-height: 80vh;
+  overflow-y: auto; /* Add scroll if the content exceeds the container height */
+}
+
+.form-container form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Arrange form elements in rows */
+}
+
+.form-container label {
+  flex: 0 0 calc(33.33% - 20px); /* Adjust the width of form fields */
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container input[type="text"],
+.form-container textarea,
+.form-container input[type="number"],
+.form-container input[type="date"] {
+  width: 100%; /* Make inputs take the full width of the label */
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-container input[type="file"] {
+  cursor: pointer;
+}
+
+.tour-buttond{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 15rem;
+
+}
+
+.form-container button {
+ 
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #C29D59;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}

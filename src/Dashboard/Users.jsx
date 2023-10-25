@@ -8,9 +8,9 @@ function Users() {
   const [modal, setModal] = useState(false);
   const [SiteUser, SetSiteUser] = useState([]);
 
-  const openModal = () => {
-    setModal(!modal);
-  };
+  // const openModal = () => {
+  //   setModal(!modal);
+  // };
 
   const FecthData = async () => {
     try {
@@ -46,10 +46,10 @@ function Users() {
     <>
       <div className="table1">
         <h1>User List</h1>
-        <button onClick={openModal} className="user">
+        <button  className="user">
           New User
         </button>
-        {modal && <SignUpForm openModal={openModal} />}
+
         <table className="user-table">
           <thead>
             <tr>

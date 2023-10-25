@@ -2,12 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
- transform: translateY(20px);
 }
-.tour-detail{
-    font-size: 33px;
-    margin-top: 2px;
-    color: #262626;
+.tour-detail {
+  font-size: 33px;
+  margin-top: 2px;
+  color: #262626;
 }
 .tour-table {
   width: 100%;
@@ -17,6 +16,7 @@
 
 .tour-table th,
 .tour-table td {
+  width: 100%;
   padding: 20px;
   border: none;
   border-bottom: 1px solid #ddd;
@@ -36,19 +36,6 @@
 
 .tour-table tr:hover {
   background-color: #f5f5f5;
-}
-
-.booked {
-  color: green;
-}
-
-.unbooked {
-  color: red;
-}
-
-.options {
-  position: relative;
-  cursor: pointer;
 }
 
 .options-icon {
@@ -75,7 +62,61 @@
   cursor: pointer;
 }
 
+.booked {
+  background-color: #4caf50; /* Green background for "booked" */
+  color: #000; /* White text color for "booked" */
+}
+
+.unbooked {
+  /* background-color: #FF5733;  */
+  color: #000;
+}
+
 .option:hover {
-  background-color: #007BFF;
+  background-color: #007bff;
   color: #fff;
+}
+.add-tour {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #c29d59;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  transform: translateX(100px);
+}
+
+.add-tour:hover {
+  background-color: #000; /* Background color on hover */
+}
+
+/* Style the icon (assuming it's within the button) */
+.add-tour > svg {
+  margin-right: 5px; /* Adjust spacing between icon and text */
+  font-size: 20px; /* Adjust icon size */
+}
+.tour-head {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.td-icons {
+  padding: 10px;
+  /* margin-top: 10px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.td-icons svg {
+  font-size: 18px;
+  margin: 0 5px;
+  cursor: pointer;
+  color: #c29d59;
 }

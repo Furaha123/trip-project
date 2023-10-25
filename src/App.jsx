@@ -21,13 +21,14 @@ import Compus from "./Dashboard/Compus";
 import Header from "./Dashboard/Header";
 
 import Upcoming from "./Dashboard/Upcoming";
-import Tour from "./Dashboard/Tour";
+// import Tour from "./Dashboard/Tour";
 import Users from "./Dashboard/Users";
 import SignUpForm from "./Dashboard/signup";
 import Rechart from "./Dashboard/Rechart";
 import Contact from "./Pages/Contact";
 import SignUp from "./Pages/SignUp";
 import Login from "./Pages/Login";
+import TourTable from "./Dashboard/AddTour";
 // import { ContextProvider } from "./Dashboard/ContextProvider";
 // import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -104,7 +105,7 @@ const App = () => {
 
       <Route path="/dashboard" element={<Dashboard />}>
         <Route path="upcoming" element={<Upcoming />} />
-        <Route path="tours" element={<Tour />} />
+        <Route path="tours" element={<TourTable />} />
         <Route index path="home" element={<Rechart />} />
         <Route path="users" element={<Users />} />
       </Route>
