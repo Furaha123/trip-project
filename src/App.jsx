@@ -15,22 +15,15 @@ import Footer from "./Pages/Footer";
 import TourList from "./Pages/TourList";
 import TourDetail from "./Pages/TourDetail";
 
-import Dashboard from "./Dashboard/Dashboard";
-import SliderBar from "./Dashboard/SliderBar";
-import Compus from "./Dashboard/Compus";
-import Header from "./Dashboard/Header";
-
-import Upcoming from "./Dashboard/Upcoming";
-// import Tour from "./Dashboard/Tour";
-import Users from "./Dashboard/Users";
-import SignUpForm from "./Dashboard/signup";
-import Rechart from "./Dashboard/Rechart";
 import Contact from "./Pages/Contact";
 import SignUp from "./Pages/SignUp";
 import Login from "./Pages/Login";
-import TourTable from "./Dashboard/AddTour";
-// import { ContextProvider } from "./Dashboard/ContextProvider";
-// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Home1 from "./Dashboard/src/Pages/home/Home1";
+import List from "./Dashboard/src/Pages/list/List";
+import Single from "./Dashboard/src/Pages/single/Single";
+import New from "./Dashboard/src/Pages/new/New";
+import TourTable from "./Dashboard/src/Components/datatable/TourTable";
+import Table from "./Dashboard/src/Components/table/Table";
 
 function Layout2() {
   <div>
@@ -56,42 +49,6 @@ function Layout1() {
 
 const App = () => {
   return (
-    // <BrowserRouter>
-
-    //   <Routes>
-    //    function Layout (){
-    //   <div className="layout">
-    //     <Header/>
-    //     <SliderBar/>
-    //     <main>
-    //       <Outlet/>
-    //     </main>
-
-    //   </div>
-
-    // }
-    //     <Route
-    //       path="/"
-    //       element={
-    //         <div>
-    //           <Layout />
-    //         </div>
-    //       }
-    //     >
-    //       <Route path="/" element={<Home />} />
-    //       <Route path="*" element={<Navigate to="/" />} />
-    //       <Route path="/about" element={<About />} />
-    //       <Route path="/tourlist" element={<TourList />} />
-    //       <Route path="/tour/:id" element={<TourDetail />} />
-    //       <Route path="login" element={<Login />} />
-    //     </Route>
-    //     <Route path="/dashboard" element={<Layout1/>}>
-    //       <Route path="dashboard/compus" element={<Compus/>} />
-    //     </Route>
-    //   </Routes>
-    // </BrowserRouter>
-    // <QueryClientProvider client={client}>
-    //   <ContextProvider>
     <Routes>
       <Route path="/" element={<Layout1 />}>
         <Route index element={<Home />} />
@@ -103,15 +60,17 @@ const App = () => {
         <Route path="login" element={<Login />} />
       </Route>
 
-      <Route path="/dashboard" element={<Dashboard />}>
-        <Route path="upcoming" element={<Upcoming />} />
-        <Route path="tours" element={<TourTable />} />
-        <Route index path="home" element={<Rechart />} />
-        <Route path="users" element={<Users />} />
+      <Route path="/dashboard">
+        <Route index element={<Home1 />} />
+        <Route path="/dashboard/users">
+          <Route index element={<List />} />
+          <Route path=":userId" element={<Single />} />
+          <Route path="new" element={<New title="update user" />} />
+        </Route>
+        <Route path="/dashboard/tours" element={<TourTable />} />
+        <Route path="/dashboard/bookings" element={<Table />} />
       </Route>
     </Routes>
-    //   </ContextProvider>
-    // </QueryClientProvider>
   );
 };
 

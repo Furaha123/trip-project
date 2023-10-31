@@ -6,7 +6,7 @@ import { FiTwitter, FiInstagram, FiFacebook } from "react-icons/fi";
 const Footer = () => {
   return (
     <div>
-      <div className="tooter">
+      <div className="tooter reveal active">
         <div className="allcontain_foot">
           <div className="container1">
             <div>

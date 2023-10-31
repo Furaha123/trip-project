@@ -1,22 +1,23 @@
 import { useParams } from "react-router-dom";
 import "../CSS/TourDetail.css";
-// import { tours } from "../data/tour";
+import { tours } from "../data/tour";
 const TourDetail = () => {
   const { id } = useParams();
   const tour = tours.find((e) => e.id == id);
   console.log(tour);
 
-  const { country } = tour;
+  const { country, image } = tour;
+
   return (
     <>
       <section className="section-tourdetails">
+        <h1 className="name-indian"> {country}</h1>
         <div className="background-image">
-          <h1 className="name-indian"> {country}</h1>
+          <img src={image} />
         </div>
 
         <div className="detail-information">
           <div class="info-button">Tour Plan</div>
-          <div class="vertical-line"></div>
           <div class="info-button">Location</div>
           <div class="vertical-line"></div>
           <div class="info-button">Gallery</div>

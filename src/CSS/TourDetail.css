@@ -2,14 +2,13 @@
   padding: 0;
   margin: 0;
 }
-.background-image {
-  background-image: url("../Images/tour4.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 90vh;
+.background-image img {
+  max-width: 100%; /* Ensure the image doesn't exceed the container's width */
+  max-height: 100%; /* Ensure the image doesn't exceed the container's height */
+  display: block; /* Remove any extra space around the image */
+  margin: 0 auto; /* Center the image horizontally within the container */
 }
+
 .name-indian {
   width: 20%;
   font-size: 80px;

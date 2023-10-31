@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import LoginImage from "../Images/Login.svg";
+import { AiOutlineStepBackward } from "react-icons/ai";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -44,6 +45,9 @@ function SignUp() {
         onSubmit={handleFormSubmit}
       >
         <div className="inputs-form">
+          <Link to="/">
+            <AiOutlineStepBackward /> Back Home
+          </Link>
           <div className="header-form">
             <div className="text-form">{action}</div>
             <div className="underline"></div>
@@ -60,7 +64,6 @@ function SignUp() {
               ></input>
             </div>
           )}
-
           <div className="input-one">
             <input
               type="email"
@@ -69,7 +72,6 @@ function SignUp() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-
           <div className="input-one">
             <input
               type="text"
@@ -86,7 +88,6 @@ function SignUp() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-
           <div className="input-one">
             <input
               type="text"
@@ -95,7 +96,6 @@ function SignUp() {
               onChange={(e) => setLocation(e.target.value)}
             />
           </div>
-
           <div className="input-one">
             <input
               type="text"

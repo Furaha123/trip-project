@@ -9,6 +9,9 @@ import Tour7 from "../Images/tour7.jpg";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const TourList = () => {
   const tours = [
@@ -72,10 +75,12 @@ const TourList = () => {
   // }, []);
 
   // const fetchTours = () => {
-  //   axios.get("https://holidayplanner.onrender.com/tour}").then(({ data }) => {
-  //     setTours(data);
-  //     console.log(data);
-  //   });
+  //   axios
+  //     .get("https://holiday-planner-4lnj.onrender.com/api/v1/tour")
+  //     .then(({ data }) => {
+  //       setTours(data);
+  //       console.log(data);
+  //     });
   // };
 
   return (
@@ -100,124 +105,130 @@ const TourList = () => {
             <option value="">Ascending</option>
           </select>
         </div>
-        <div className="side-form">
-          <h6 className="title-1">FIND YOUR TOUR</h6>
-          <div class="search-tour">
-            <input type="text" placeholder="Search Tour" />
-          </div>
-          <div class="search-tour">
-            <input type="text" placeholder="Where To?" />
-          </div>
-          <div class="search-tour">
-            <input
-              type="text"
-              placeholder="Month"
-              list="months"
-              id="monthInput"
-            />
-            <datalist id="months">
-              <option value="January"></option>
-              <option value="February"></option>
-              <option value="March"></option>
-              <option value="April"></option>
-              <option value="May"></option>
-              <option value="June"></option>
-              <option value="July"></option>
-              <option value="August"></option>
-              <option value="September"></option>
-              <option value="October"></option>
-              <option value="November"></option>
-              <option value="December"></option>
-            </datalist>
-          </div>
 
-          <h6 className="durate"> Duration</h6>
-          <div class="search-tour">
-            <input type="text" placeholder="Any" />
-          </div>
-          <div className="price-selection">
-            <div className="min-price">
-              <p>Min Price</p>
-              <input type="number" />
-            </div>
-            <div className="max-price">
-              <p>Max Price</p>
-              <input type="number" />
-            </div>
-          </div>
+        <div className="tour_list-container">
+          <div className="card-container">
+            {tours.map((tour, index) => (
+              <div key={index} className="card-tour1">
+                <img src={tour.backdropImage} alt={`Tour ${index + 1}`} />
+                <div className="min-tour">
+                  <h1 className="italy">{tour.destination}</h1>
+                  <p className="para-1">{tour.Title}</p>
+                  <p className="para-2">{tour.Description}</p>
 
-          <div class="checkbox-selection">
-            <div class="checkbox">
-              <input type="checkbox" id="cultural" />
-              <label for="cultural">Cultural</label>
-            </div>
-            <div class="checkbox">
-              <input type="checkbox" id="adventure" />
-              <label for="adventure">Adventure</label>
-            </div>
-            <div class="checkbox">
-              <input type="checkbox" id="historical" />
-              <label for="historical">Historical</label>
-            </div>
-            <div class="checkbox">
-              <input type="checkbox" id="seaside" />
-              <label for="seaside">Seaside</label>
-            </div>
-            <div class="checkbox">
-              <input type="checkbox" id="discovery" />
-              <label for="discovery">Discovery</label>
-            </div>
-          </div>
-          <button>FIND NOW</button>
-        </div>
-        <div className="tour-mission">
-          <div className="mission-details">
-            <h1>Why Book with us ?</h1>
-            <p>Customer care available 24/7</p>
-            <p>Free Travel Insurance </p>
-            <p>Hand-picked Tours & Activitie</p>
-          </div>
-        </div>
-
-        <div className="tour-mission1">
-          <div className="">
-            <h1>Get A Question ?</h1>
-            <p>
-              Do not hesitage to give us a call. We are an expert team and we
-              are happy to talk to you
-            </p>
-            <p>holidayplanners@gmail.com </p>
-            <p>+123 456 7890</p>
-          </div>
-        </div>
-
-        <div className="card-container">
-          {tours.map((tour, index) => (
-            <div key={index} className="card-tour1">
-              <img src={tour.backdropImage} alt={`Tour ${index + 1}`} />
-              <div className="min-tour">
-                <h1 className="italy">{tour.country}</h1>
-                <p className="para-1">{tour.title}</p>
-                <p className="para-2">{tour.description}</p>
-                <div className="periods">
-                  <div className="duration">
-                    <h3>{tour.duration}</h3>
-                    <p className="para-days">{tour.days}</p>
+                  <div className="periods">
+                    <div className="duration">
+                      <h3>{tour.duration}</h3>
+                      <p className="para-days">{tour.duration}</p>
+                    </div>
+                    <div>
+                      <h3 className="group-size">{tour.GroupSize}</h3>
+                      <p className="people">{tour.people}</p>
+                    </div>
                   </div>
+                  <p className="price">{tour.Price}</p>
                   <div>
-                    <h3 className="group-size">{tour.sub}</h3>
-                    <p className="people">{tour.people}</p>
+                    <Link to={`/tour/${tour.id}`} className="book-now-button">
+                      Book Now
+                    </Link>
                   </div>
-                </div>
-                <p className="price">{tour.amount}</p>
-                <div>
-                  <Link to={`/tour/${tour.id}`} className="book-now-button">
-                    Book Now
-                  </Link>
                 </div>
               </div>
+            ))}
+          </div>
+          <div className="list-container">
+            <div className="side-form">
+              <h6 className="title-1">FIND YOUR TOUR</h6>
+              <div class="search-tour">
+                <input type="text" placeholder="Search Tour" />
+              </div>
+              <div class="search-tour">
+                <input type="text" placeholder="Where To?" />
+              </div>
+              <div class="search-tour">
+                <input
+                  type="text"
+                  placeholder="Month"
+                  list="months"
+                  id="monthInput"
+                />
+                <datalist id="months">
+                  <option value="January"></option>
+                  <option value="February"></option>
+                  <option value="March"></option>
+                  <option value="April"></option>
+                  <option value="May"></option>
+                  <option value="June"></option>
+                  <option value="July"></option>
+                  <option value="August"></option>
+                  <option value="September"></option>
+                  <option value="October"></option>
+                  <option value="November"></option>
+                  <option value="December"></option>
+                </datalist>
+              </div>
+
+              <h6 className="durate"> Duration</h6>
+              <div class="search-tour">
+                <input type="text" placeholder="Any" />
+              </div>
+              <div className="price-selection">
+                <div className="min-price">
+                  <p>Min Price</p>
+                  <input type="number" />
+                </div>
+                <div className="max-price">
+                  <p>Max Price</p>
+                  <input type="number" />
+                </div>
+              </div>
+
+              <div class="checkbox-selection">
+                <div class="checkbox">
+                  <input type="checkbox" id="cultural" />
+                  <label for="cultural">Cultural</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" id="adventure" />
+                  <label for="adventure">Adventure</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" id="historical" />
+                  <label for="historical">Historical</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" id="seaside" />
+                  <label for="seaside">Seaside</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" id="discovery" />
+                  <label for="discovery">Discovery</label>
+                </div>
+              </div>
+              <button className="find-button">FIND NOW</button>
             </div>
-          ))}
+
+            <div className="tour-mission">
+              <div className="mission-details">
+                <h1>Why Book with us ?</h1>
+                <p>Customer care available 24/7</p>
+                <p>Free Travel Insurance </p>
+                <p>Hand-picked Tours & Activitie</p>
+              </div>
+            </div>
+
+            <div className="tour-mission1">
+              <div className="">
+                <h1>Get A Question ?</h1>
+                <p>
+                  Do not hesitage to give us a call. We are an expert team and
+                  we are happy to talk to you
+                </p>
+                <p>holidayplanners@gmail.com </p>
+                <p>+123 456 7890</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

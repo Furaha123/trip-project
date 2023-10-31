@@ -55,12 +55,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 53rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   background-color: #f6f6f6;
   padding: 9px;
-  width: 30%;
-  transform: translateY(-110px);
+
+  /* margin-left: 7rem; */
 }
 
 .title-1 {
@@ -171,16 +170,24 @@ body {
 }
 .card-container {
   display: grid;
-  width: 50%;
-  transform: translateY(-65rem);
-  margin-left: 6rem;
+  width: 60%;
   gap: 20px;
   grid-template-columns: repeat(2, 1fr);
+  margin-top: 30px;
+  margin-left: 3rem;
 }
-.tour-area {
-  /* background-color: red;
-   */
-  height: 100rem;
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin-right: 2rem;
+  margin-top: -6rem;
+}
+.tour_list-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 .card-tour1 {
   display: flex;
@@ -197,7 +204,8 @@ body {
 }
 
 .card-tour1 img {
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
   height: fit-content;
   display: block;
   border-radius: 5px;
@@ -207,12 +215,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 53rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   background-color: #fff;
   padding: 10px;
-  transform: translateY(-90px);
-  width: 30%;
+
+  margin-top: 20px;
 }
 .mission-details {
   margin-left: -0.4rem;
@@ -241,19 +248,18 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 53rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   background-color: #c29d59;
   padding: 18px;
-  transform: translateY(-50px);
-  width: 30%;
   height: 50vh;
+
+  margin-top: 20px;
 }
 .tour-mission1 h1 {
   font-size: 22px;
   font-weight: bold;
   text-transform: uppercase;
-  transform: translateY(-10px);
+  /* transform: translateY(-10px); */
   margin-left: 1.4rem;
 }
 
@@ -263,3 +269,18 @@ body {
   padding-top: 23px;
   margin-left: 1.1rem;
 }
+
+/* .card-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  white-space: nowrap;
+  margin-top: 20px;
+} */
+
+/* .card-tour1 {
+  flex: 0 0 auto;
+  width: 300px;
+  margin-right: 20px;
+  scroll-snap-align: start;
+} */

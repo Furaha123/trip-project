@@ -12,6 +12,23 @@ import Tour5 from "../Images/tour5.jpg";
 import Carousel from "react-bootstrap/Carousel";
 
 const Home = () => {
+  window.addEventListener("scroll", reveal);
+  window.addEventListener("load", reveal);
+
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+      var revealPoint = reveals[i].getBoundingClientRect().top;
+      var windowHeight = window.innerHeight;
+
+      if (revealPoint < windowHeight - 150) {
+        reveals[i].classList.add("active");
+      } else {
+        reveals[i].classList.remove("active");
+      }
+    }
+  }
+
   const slide = [
     {
       image: Tour1,
@@ -39,7 +56,7 @@ const Home = () => {
   ];
   return (
     <>
-      <section className="section-home">
+      <section className="section-home ">
         <div className="center-words">
           <h1>Enjyoy the Travel with</h1>
           <h4> Holiday Planners</h4>
@@ -84,8 +101,8 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="section-about">
-        <div className="about-section">
+      <section className="section-about ">
+        <div className="about-section  reveal active">
           <div className="image-container">
             <div className="outer-image">
               <img src={AboutImage} alt="Outer Image" />
@@ -114,7 +131,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="tour-section">
+      <section className="tour-section reveal active">
         <div className="">
           <div className="tour-head">
             <h1 className="title-one"> Amazingn Tours</h1>

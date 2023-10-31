@@ -1,0 +1,62 @@
+.tourtable {
+  width: 100%;
+  display: flex;
+
+  .tourtableContainer {
+    flex: 6;
+
+    .datatable {
+      height: 600px;
+      padding: 20px;
+      .new-button {
+        margin-bottom: 10px;
+        padding: 7px 10px;
+        cursor: pointer;
+        color: #fff;
+        background-color: #c29d59f7;
+        border: 1px solid #c29d59;
+        border-radius: 5px;
+      }
+
+      .cellWithStatus {
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 4px;
+        text-align: center;
+      }
+
+      .cellWithStatus.Active {
+        background-color: rgba(0, 128, 0, 0.288);
+        color: green;
+        padding: 5px 20px;
+      }
+
+      .cellWithStatus.Pending {
+        background-color: rgba(255, 0, 0, 0.259);
+        color: crimson;
+        padding: 5px 14px;
+      }
+      .cellAction {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        .viewButton1 {
+          margin-right: -5px;
+          padding: 2px 5px;
+          border-radius: 5px;
+          color: green;
+          border: 1px solid rgba(0, 128, 0, 0.345);
+        }
+
+        .deleteButton1 {
+          margin-right: -5px;
+          padding: 2px 5px;
+          border-radius: 5px;
+          border: 1px solid rgba(220, 20, 60, 0.392);
+          color: crimson;
+        }
+      }
+    }
+  }
+}
