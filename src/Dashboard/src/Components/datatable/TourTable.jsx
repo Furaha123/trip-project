@@ -41,9 +41,18 @@ const columns = [
   },
 
   {
-    field: "gallery",
+    field: "image",
     headerName: "Gallery",
     width: 120,
+    renderCell: (params) => (
+      <div className="image-cell">
+        <img
+          src={params.row.image}
+          alt={params.row.title}
+          className="tour-image"
+        />
+      </div>
+    ),
   },
 
   {
@@ -72,7 +81,7 @@ function DataTable() {
             <div className="viewButton1">
               <BiSolidEditAlt onClick={() => editTour(params.row)} />
             </div>
-            <div className="deleteButton1">
+            <div className="deleteButton1" onClick={handleDelete}>
               <MdDelete />
             </div>
           </div>
@@ -90,7 +99,7 @@ function DataTable() {
     const fetchData = async () => {
       try {
         const token =
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTNmZTc3NzI3NzgzOTU3MGQ2NmQzOGQiLCJlbWFpbCI6ImZ1cmFoYUBnbWFpbC5jb20iLCJpYXQiOjE2OTg3ODE2MTgsImV4cCI6MTY5ODc4NTIxOH0.QtrmEjmYIQNeuobJJaUzT42LnmxqWnJVHyRnvi7peCA";
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTNmZTc3NzI3NzgzOTU3MGQ2NmQzOGQiLCJlbWFpbCI6ImZ1cmFoYUBnbWFpbC5jb20iLCJpYXQiOjE2OTg4NDQ5NDksImV4cCI6MTY5ODg0ODU0OX0.gE1xvdV05I2XHgwWNLu7PWgPMJymwsD1OX_bWDDWw-w";
         const config = {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -120,6 +129,25 @@ function DataTable() {
 
     fetchData();
   }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      const accessToken =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTNmZTc3NzI3NzgzOTU3MGQ2NmQzOGQiLCJlbWFpbCI6ImZ1cmFoYUBnbWFpbC5jb20iLCJpYXQiOjE2OTg4MjE0ODEsImV4cCI6MTY5ODgyNTA4MX0.1WO31yXJF4lyQZlLJL5zodVAu8pqdKc2-WWIGeIyis8";
+      await axios.delete(
+        `https://holidayplanner.onrender.com/tour/delete/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      setRows((prevRows) => prevRows.filter((row) => row._id !== id));
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
+  };
 
   return (
     <div className="tourtable">

@@ -24,6 +24,9 @@ import Single from "./Dashboard/src/Pages/single/Single";
 import New from "./Dashboard/src/Pages/new/New";
 import TourTable from "./Dashboard/src/Components/datatable/TourTable";
 import Table from "./Dashboard/src/Components/table/Table";
+import { useContext } from "react";
+import { DarkModeContext } from "./Dashboard/src/context/darkModeContext";
+import ContactTable from "./Dashboard/src/Components/datatable/ContactTable";
 
 function Layout2() {
   <div>
@@ -48,29 +51,33 @@ function Layout1() {
 }
 
 const App = () => {
+  const { darkMode } = useContext(DarkModeContext);
   return (
-    <Routes>
-      <Route path="/" element={<Layout1 />}>
-        <Route index element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/tourlist" element={<TourList />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/tour/:id" element={<TourDetail />} />
-        <Route path="signup" element={<SignUp />} />
-        <Route path="login" element={<Login />} />
-      </Route>
-
-      <Route path="/dashboard">
-        <Route index element={<Home1 />} />
-        <Route path="/dashboard/users">
-          <Route index element={<List />} />
-          <Route path=":userId" element={<Single />} />
-          <Route path="new" element={<New title="update user" />} />
+    <div className={darkMode ? "app dark" : "app"}>
+      <Routes>
+        <Route path="/" element={<Layout1 />}>
+          <Route index element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/tourlist" element={<TourList />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/tour/:id" element={<TourDetail />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="login" element={<Login />} />
         </Route>
-        <Route path="/dashboard/tours" element={<TourTable />} />
-        <Route path="/dashboard/bookings" element={<Table />} />
-      </Route>
-    </Routes>
+
+        <Route path="/dashboard">
+          <Route index element={<Home1 />} />
+          <Route path="/dashboard/users">
+            <Route index element={<List />} />
+            <Route path="new" element={<New title="update user" />} />
+          </Route>
+          <Route path="/dashboard/tours" element={<TourTable />} />
+          <Route path="/dashboard/bookings" element={<Table />} />
+          <Route path="/dashboard/single/:userId" element={<Single />} />
+          <Route path="/dashboard/contacts" element={<ContactTable />} />
+        </Route>
+      </Routes>
+    </div>
   );
 };
 

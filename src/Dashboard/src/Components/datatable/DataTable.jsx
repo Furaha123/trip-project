@@ -7,7 +7,7 @@ import EditTourTable from "../datatable/EditTourTble";
 const handleDelete = async (id) => {
   try {
     const accessToken =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTNmZTc3NzI3NzgzOTU3MGQ2NmQzOGQiLCJlbWFpbCI6ImZ1cmFoYUBnbWFpbC5jb20iLCJpYXQiOjE2OTg3NzM4OTIsImV4cCI6MTY5ODc3NzQ5Mn0.1XnY4jUEYUDlHoGiAkKB41NE5KOjetmiqh4GBKGOEKo";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTNmZTc3NzI3NzgzOTU3MGQ2NmQzOGQiLCJlbWFpbCI6ImZ1cmFoYUBnbWFpbC5jb20iLCJpYXQiOjE2OTg4MjE0ODEsImV4cCI6MTY5ODgyNTA4MX0.1WO31yXJF4lyQZlLJL5zodVAu8pqdKc2-WWIGeIyis8";
     await axios.delete(
       `https://holidayplanner.onrender.com/auth/deleteuser/${id}`,
       {
@@ -22,23 +22,29 @@ const handleDelete = async (id) => {
     console.error("Error deleting user:", error);
   }
 };
+
 const actionColumn = [
   {
     field: "action",
     headerName: "Action",
     width: 130,
-    renderCell: () => {
-      return (
-        <div className="cellAction">
-          <Link to="/users/test" style={{ textDecoration: "none" }}>
-            <div className="viewButton">View</div>
-          </Link>
-          <div className="deleteButton" onClick={handleDelete}>
-            delete
-          </div>
+    renderCell: (params) => (
+      <div className="cellAction">
+        <Link
+          to={`/dashboard/single/${params.row._id}`}
+          style={{ textDecoration: "none" }}
+        >
+          <div className="viewButton">View</div>
+        </Link>
+
+        <div
+          className="deleteButton"
+          onClick={() => handleDelete(params.row._id)}
+        >
+          delete
         </div>
-      );
-    },
+      </div>
+    ),
   },
 ];
 const columns = [
@@ -62,19 +68,19 @@ const columns = [
     width: 105,
   },
   {
-    field: "fullName",
+    field: "_id",
     headerName: "IDS",
     description: "This column has a value getter and is not sortable.",
     sortable: false,
     width: 160,
-    renderCell: (params) => {
-      return (
-        <>
-          <span>{params.row.fullName}</span>
-          <p>{params.row._id}</p>
-        </>
-      );
-    },
+    // renderCell: (params) => {
+    //   return (
+    //     <>
+    //       <span>{params.row.fullName}</span>
+    //       <p>{params.row._id}</p>
+    //     </>
+    //   );
+    // },
   },
   {
     field: "status",
@@ -89,13 +95,13 @@ const columns = [
 ];
 
 function DataTable() {
-  const [row, setRows] = useState([]);
+  const [rows, setRows] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const accessToken =
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTNmZTc3NzI3NzgzOTU3MGQ2NmQzOGQiLCJlbWFpbCI6ImZ1cmFoYUBnbWFpbC5jb20iLCJpYXQiOjE2OTg3ODE2MTgsImV4cCI6MTY5ODc4NTIxOH0.QtrmEjmYIQNeuobJJaUzT42LnmxqWnJVHyRnvi7peCA";
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTNmZTc3NzI3NzgzOTU3MGQ2NmQzOGQiLCJlbWFpbCI6ImZ1cmFoYUBnbWFpbC5jb20iLCJpYXQiOjE2OTg4MjE0ODEsImV4cCI6MTY5ODgyNTA4MX0.1WO31yXJF4lyQZlLJL5zodVAu8pqdKc2-WWIGeIyis8";
         const response = await axios.get(
           "https://holidayplanner.onrender.com/auth",
           {
@@ -122,7 +128,8 @@ function DataTable() {
 
     fetchData();
   }, []);
-
+  const totalUsers = rows.length;
+  console.log(totalUsers);
   return (
     <div className="datatable">
       <DataGrid
@@ -132,8 +139,8 @@ function DataTable() {
         pageSize={5}
         checkboxSelection
         getRowId={(row) => row._id}
+        isRowSelectable={(params) => !!params.data && !!params.data._id}
       />
-      <EditTourTable rows={row} />
     </div>
   );
 }

@@ -8,11 +8,10 @@ import {
   BsCashCoin,
 } from "react-icons/bs";
 
-function Widget({ type }) {
+function Widget({ type, total, tourCount, userCount }) {
   let data;
 
- 
-  const amount = 100;
+  // const amount = 100;
   const diff = 20;
 
   switch (type) {
@@ -89,8 +88,10 @@ function Widget({ type }) {
       <div className="left">
         <span className="title01">{data.title}</span>
         <span className="counter">
-          {data.isMoney && "$"} {amount}
+          {data.isMoney && "$"} {type === "user" ? total : userCount}
+          {data.isMoney} {type === "tour" ? total : tourCount}
         </span>
+
         <span className="link">{data.link}</span>
       </div>
       <div className="right">

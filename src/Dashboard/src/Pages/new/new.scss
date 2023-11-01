@@ -39,12 +39,22 @@
         justify-content: space-around;
         .formInputs {
           width: 40%;
+           .upload-image{
+             font-size: 22px;
+             color: gray;
+             font-weight: bold;
+            
+            }
           label {
+           
             display: flex;
             align-items: center;
             gap: 4px;
             .icon5 {
               cursor: pointer;
+            font-size: 30px;
+            color: #c29d59;
+           
             }
           }
           input {

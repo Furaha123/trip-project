@@ -8,6 +8,14 @@
     .datatable {
       height: 600px;
       padding: 20px;
+      .image-cell {
+        img {
+          max-width: 90px;
+          margin: 10px;
+          padding: 10px;
+          border-radius: 50%;
+        }
+      }
       .new-button {
         margin-bottom: 10px;
         padding: 7px 10px;
@@ -26,8 +34,8 @@
       }
 
       .cellWithStatus.Active {
-        background-color: rgba(0, 128, 0, 0.288);
-        color: green;
+        background-color: #c29d595b;
+        color: #c29d59;
         padding: 5px 20px;
       }
 
@@ -45,7 +53,7 @@
           margin-right: -5px;
           padding: 2px 5px;
           border-radius: 5px;
-          color: green;
+          color: #c29d59;
           border: 1px solid rgba(0, 128, 0, 0.345);
         }
 
@@ -54,7 +62,7 @@
           padding: 2px 5px;
           border-radius: 5px;
           border: 1px solid rgba(220, 20, 60, 0.392);
-          color: crimson;
+          color: #000;
         }
       }
     }

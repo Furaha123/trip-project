@@ -1,40 +1,77 @@
 import React from "react";
 import "../CSS/Contact.css";
+import { useState } from "react";
 export default function Contact() {
+  const [dateReplied, setDateReplied] = useState("");
+  const [reply, setReply] = useState("");
+  const [dateSent, setDataSent] = useState("");
+
+  const [message, setMessage] = useState("");
+
+  const handleFormSubmit = () => {
+    const formData = {
+      dateReplied,
+      reply,
+      dateSent,
+    };
+
+    axios
+      .post("https://holidayplanner.onrender.com/contact", formData)
+      .then((response) => {
+        console.log("Form data submitted successfully");
+      })
+      .catch((error) => {
+        console.error("Error submitting form data: ", error);
+      });
+  };
+
   return (
     <>
       <div className="section-contact">
         <h1 className="contact-title">Contact us</h1>
       </div>
       <div className="contact-container-down">
-        <div className="contact-area">
+        <form className="contact-area" onSubmit={handleFormSubmit}>
           <div className="form-area">
             <div className="form-1">
               <input
                 type="text"
-                id="firstName"
+                id="dateReplied"
                 name="firstName"
-                placeholder="First name"
+                placeholder=""
+                value={dateReplied}
+                onChange={(e) => setDateReplied(e.target.value)}
               />
 
               <input
                 type="text"
                 id=""
-                name="firstName"
-                placeholder="Last name"
+                name="reply"
+                placeholder=""
+                value={reply}
+                onChange={(e) => setReply(e.target.value)}
               />
             </div>
             <div className="form-1">
-              <input type="text" id="firstName" placeholder="Phone" />
-
-              <input type="text" id="firstName" placeholder="Services *" />
+              <input
+                type="text"
+                id=""
+                placeholder=""
+                value={dateSent}
+                onChange={(e) => setDataSent(e.target.value)}
+              />
             </div>
-            <textarea id="message" name="message" />
-            <button type="submit" class="submit-button">
+            <textarea
+              id="message"
+              name="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+            <button type="submit" class="submit-button2">
               Submit
             </button>
           </div>
-        </div>
+        </form>
         <div className="mission-div">
           <div className="tour-mission01">
             <div className="mission-details01">

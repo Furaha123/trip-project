@@ -34,6 +34,7 @@
 
 .form-1 {
   display: flex;
+  gap: 10px;
   justify-content: space-between;
   margin-bottom: 15px;
 }
@@ -53,7 +54,7 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-.submit-button {
+.submit-button2 {
   display: inline-block;
   padding: 10px 20px;
   background-color: #c29d59;
@@ -63,7 +64,7 @@ textarea {
   cursor: pointer;
 }
 
-.submit-button:hover {
+.submit-button2:hover {
   background-color: #000;
 }
 

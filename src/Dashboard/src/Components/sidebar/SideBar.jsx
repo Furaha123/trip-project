@@ -45,12 +45,17 @@ function SideBar() {
               <span className="span1">Users</span>
             </Link>
           </li>
+          <li className="lists">
+            <FaUsers className="icon1" />
+
+            <span className="span1">Contacts</span>
+          </li>
           <p className="title0">services</p>
           <Link to="bookings" style={{ textDecoration: "none" }}>
             <li className="lists">
               <BsFillCalendar2HeartFill className="icon1" />
 
-              <span className="span1">Contacts</span>
+              <span className="span1">Bookings</span>
             </li>
           </Link>
           <li className="lists">
@@ -65,7 +70,7 @@ function SideBar() {
 
           <li className="lists">
             <CgProfile className="icon1" />
-            <span>Profile</span>
+            <span className="span1">Profile</span>
           </li>
 
           <li className="lists">

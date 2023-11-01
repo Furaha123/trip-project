@@ -19,14 +19,13 @@ function App() {
         <Routes>
           <Route path="/dashboard">
             <Route index element={<Home />} />
-            <Route path="login" element={<Login />} />
+
             <Route path="/dashboard/users">
               <Route index element={<List />} />
               <Route path=":userId" element={<Single />} />
               <Route path="new" element={<New title="update user" />} />
             </Route>
             <Route path="/dashboard/tours" element={<TourTable />} />
-           
           </Route>
         </Routes>
       </BrowserRouter>
